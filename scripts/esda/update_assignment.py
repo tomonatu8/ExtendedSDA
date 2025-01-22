@@ -1,7 +1,6 @@
 from typing import Dict, List, Tuple, Optional
 
 from scripts.esda.agent_class import SDA_Child, SDA_Daycare, SDA_Family
-from scripts.esda.update_permutaion import update_pi
 
 
 def update_assignment(

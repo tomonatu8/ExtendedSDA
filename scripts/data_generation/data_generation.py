@@ -17,14 +17,14 @@ def calculate_family_size(total_children: int) -> Tuple[int, int, int, int]:
     two_siblings_families = int((0.2 * total_children * 0.8) / 2)
     three_siblings_families = int((0.2 * total_children * 0.2) / 3)
     
-    # 2人兄弟と3人兄弟の子どもの総数を計算
+    # Calculate the total number of children in families with 2 or 3 siblings
     children_in_larger_families = (two_siblings_families * 2 + 
                                  three_siblings_families * 3)
     
-    # 残りを一人っ子家庭に割り当て
+    # Assign the remaining children to single-child families
     single_child_families = total_children - children_in_larger_families
     
-    # 合計家庭数を計算
+    # Calculate the total number of families
     total_families = single_child_families + two_siblings_families + three_siblings_families
     
     return total_families, single_child_families, two_siblings_families, three_siblings_families
@@ -158,55 +158,3 @@ def data_generation(total_children: int, phi: float, num_instances: int = 100) -
     
     return instances
 
-
-# if __name__ == "__main__":
-#     # Parameters
-#     target_children_sizes = [500, 1000, 3000, 5000, 10000]
-#     phi_values = [0.9,1.0]
-
-#     # Create base directory for datasets
-#     base_dir = Path('mallows/datasets')
-#     base_dir.mkdir(exist_ok=True)
-
-#     # Generate and save data for each configuration
-#     for total_children in target_children_sizes:
-#         print(f"\nGenerating data for total children: {total_children}")
-#         total_families, single_child_families, two_siblings_families, three_siblings_families = calculate_family_size(total_children)
-#         print(f"  Families breakdown:")
-#         print(f"    Total families: {total_families}")
-#         print(f"    Total children: {single_child_families + two_siblings_families * 2 + three_siblings_families * 3}")
-#         print(f"    Single child: {single_child_families}")
-#         print(f"    Two siblings: {two_siblings_families}")
-#         print(f"    Three siblings: {three_siblings_families}")
-        
-#         for phi in phi_values:
-#             print(f"  φ = {phi}")
-#             filename = base_dir / f"instances_children_{total_children}_phi_{phi}.pkl.gz"
-#             if filename.exists():
-#                 print(f"\nSkipping existing file: {filename}")
-#                 continue
-            
-#             # Generate instances
-#             instances = generate_data(total_children, phi)
-            
-#             # Package with metadata
-#             dataset = {
-#                 'params': {
-#                     'total_children': total_children,
-#                     'total_families': total_families,
-#                     'single_child_families': single_child_families,
-#                     'two_siblings_families': two_siblings_families,
-#                     'three_siblings_families': three_siblings_families,
-#                     'phi': phi,
-#                 },
-#                 'instances': instances
-#             }
-
-#             # Save to compressed pickle file
-#             filename = base_dir / f"instances_children_{total_children}_phi_{phi}.pkl.gz"
-#             with gzip.open(filename, 'wb') as f:
-#                 pickle.dump(dataset, f)
-            
-#             print(f"    Saved to {filename}")
-
-#     print(f"\nData generation complete!")
