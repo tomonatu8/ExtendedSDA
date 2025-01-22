@@ -15,7 +15,7 @@ This repository contains the codebase for the paper titled "Probabilistic Analys
 ### Prerequisites
 - Python 3.10
 - [Rye](https://rye.astral.sh/) (Python package manager)
-- [UV](https://github.com/astral-sh/uv) (Python package installer, used by Rye)
+- [uv](https://github.com/astral-sh/uv) (Python package installer, used by Rye)
 - [Rust](https://www.rust-lang.org/) (for Mallows model)
 
 ### Installation
@@ -26,19 +26,19 @@ curl -sSf https://rye.astral.sh/get | bash
 source "$HOME/.rye/env"
 rye self update
 ```
-2. Configure Rye to use UV:
-UV is a fast Python package installer that Rye can use internally. Enable it with:
+2. Configure Rye to use uv:
+uv is a fast Python package installer that Rye can use internally. Enable it with:
 ```bash
 rye config --set-bool behavior.use-uv=true
 ```
 3. Install UV:
-If UV is not already installed, you can install it manually:
+If uv is not already installed, you can install it manually:
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 source ~/.bashrc 
 ```
-4. Verify UV Installation:
-Ensure UV is installed correctly by checking its version:
+4. Verify uv Installation:
+Ensure uv is installed correctly by checking its version:
 ```bash
 uv --version
 ```
@@ -75,6 +75,6 @@ rye run pytest -s test/test_data_generation.py
 - [1] F. Kojima, P. A. Pathak, and A. E. Roth. Matching with couples: Stability and incentives in large markets. *The Quarterly Journal of Economics*, 128(4):1585-1632, 2013.
 
 - [2] I. Ashlagi, M. Braverman, and A. Hassidim. Stability in large matching markets with complementarities. *Operation
-Research*, 62(4):713–732, 2014.
+Research*, 62(4):713-732, 2014.
 
-- [3] - Z. Sun, N. Yamada, Y. Takenami, D. Moriwaki, and M. Yokoo. Stable matchings in practice: A constraint programming approach. In *Proceedings of the 38th AAAI Conference on Artificial Intelligence (AAAI 2024)*, pages 22377–22384, 2024.
+- [3] - Z. Sun, N. Yamada, Y. Takenami, D. Moriwaki, and M. Yokoo. Stable matchings in practice: A constraint programming approach. In *Proceedings of the 38th AAAI Conference on Artificial Intelligence (AAAI 2024)*, pages 22377-22384, 2024.
