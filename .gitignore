@@ -1,0 +1,14 @@
+*.pkl
+*.csv
+
+.venv/
+__pycache__/
+requirements-dev.lock
+requirements.lock
+
+.vscode
+
+*.txt
+
+*.png
+

@@ -1,0 +1,35 @@
+[project]
+name = "esda"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "yokoyama", email = "tomo_natu888@yahoo.co.jp" }
+]
+dependencies = [
+    "numpy>=2.2.1",
+    "maturin>=1.8.1",
+    "pandas>=2.2.3",
+    "tqdm>=4.67.1",
+    "pytest>=8.3.4",
+    "preflibtools>=2.0.32",
+    "uv>=0.5.13",
+    "ortools>=9.11.4210",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "maturin>=1.8.1",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["scripts"]
