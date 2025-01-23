@@ -3,7 +3,7 @@
 This repository contains the codebase for the paper titled "Probabilistic Analysis of Stable Matching in Large Markets with Siblings". This includes implementations of **Extended Sorted Deferred Acceptance (ESDA)**, and synthetic data generation using Mallows models implemented in Rust.
 
 ## Key Features
-- **SC (Sequence Couples Algorithm)** [1]
+- **SC (Sequential Couples Algorithm)** [1]
 - **SDA (Sorted Deferred Acceptance Algorithm)** [2]
 - **ESDA (Extended Sorted Deferred Acceptance Algorithm)**
 - **CP (Constraint Programming)** [3]
