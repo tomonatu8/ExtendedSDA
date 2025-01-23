@@ -77,4 +77,4 @@ rye run pytest -s test/test_data_generation.py
 - [2] I. Ashlagi, M. Braverman, and A. Hassidim. Stability in large matching markets with complementarities. *Operation
 Research*, 62(4):713-732, 2014.
 
-- [3] - Z. Sun, N. Yamada, Y. Takenami, D. Moriwaki, and M. Yokoo. Stable matchings in practice: A constraint programming approach. In *Proceedings of the 38th AAAI Conference on Artificial Intelligence (AAAI 2024)*, pages 22377-22384, 2024.
+- [3] Z. Sun, N. Yamada, Y. Takenami, D. Moriwaki, and M. Yokoo. Stable matchings in practice: A constraint programming approach. In *Proceedings of the 38th AAAI Conference on Artificial Intelligence (AAAI 2024)*, pages 22377-22384, 2024.
