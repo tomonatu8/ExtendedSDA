@@ -31,7 +31,7 @@ uv is a fast Python package installer that Rye can use internally. Enable it wit
 ```bash
 rye config --set-bool behavior.use-uv=true
 ```
-3. Install UV:
+3. Install uv:
 If uv is not already installed, you can install it manually:
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
