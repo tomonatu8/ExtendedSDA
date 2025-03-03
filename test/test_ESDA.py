@@ -6,9 +6,11 @@ import os
 import time
 import traceback
 
-sys.path.append(os.path.dirname((os.path.abspath(__file__))).replace("/test",""))
-from scripts.esda.unified_ESDA_algorithm import unified_ESDA_algorithm
+current_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(current_dir.replace("/test", ""))
 
+
+from scripts.esda.unified_ESDA_algorithm import unified_ESDA_algorithm
 from test.create_test_instances import create_test_instance_1, create_test_instance_2, create_test_presented_in_Theorem_1
 
 

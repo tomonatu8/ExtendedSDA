@@ -6,26 +6,37 @@ import random
 def generate_child(
         id: int, 
         family_id: Optional[int], 
-        pref: List[int]
+        pref: List[int],
+        age_distribution: Optional[List[float]],
+        seed: int
 ) -> DefaultDict[str, Any]:
 
     dict_for_child: DefaultDict[str, Any] = defaultdict()
 
     dict_for_child['id'] = id
+
+    rng = random.Random(seed)
+
+    if age_distribution is None:
+        age_distribution = [0.3, 0.3, 0.15, 0.15, 0.05, 0.05]
     
-    random_number = random.uniform(0,1)
-    if random_number<=0.3:
-        dict_for_child['age'] = 0
-    elif random_number<=0.6:
-        dict_for_child['age'] = 1
-    elif random_number<=0.75:
-        dict_for_child['age'] = 2
-    elif random_number<=0.9:
-        dict_for_child['age'] = 3
-    elif random_number<=0.95:
-        dict_for_child['age'] = 4
-    else:
-        dict_for_child['age'] = 5
+    # Validate age distribution
+    if len(age_distribution) != 6:
+        raise ValueError("Age distribution must have exactly 6 values (for ages 0-5)")
+    
+    if abs(sum(age_distribution) - 1.0) > 0.0001:
+        raise ValueError("Age distribution probabilities must sum to 1.0")
+    
+    # Generate cumulative probability thresholds
+    cum_prob = [sum(age_distribution[:i+1]) for i in range(len(age_distribution))]
+
+    
+    # Assign age based on the distribution
+    random_number = rng.uniform(0, 1)
+    for age, threshold in enumerate(cum_prob):
+        if random_number <= threshold:
+            dict_for_child['age'] = age
+            break
 
     dict_for_child['family_id'] = family_id
     dict_for_child['initial_daycare_id'] = None
@@ -35,10 +46,11 @@ def generate_child(
     return dict_for_child
 
 
+
 def generate_family(
         id: int, 
         children_list: List[int], 
-        pref: List[int]
+        pref: List[Tuple[int, ...]],
 ) -> DefaultDict[str, Any]:
 
     dic_for_f: DefaultDict[str, Any] = defaultdict()
