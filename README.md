@@ -5,9 +5,9 @@ This repository contains the codebase for the paper titled "Probabilistic Analys
 ## Key Features
 - **SC (Sequential Couples Algorithm)** [1]
 - **SDA (Sorted Deferred Acceptance Algorithm)** [2]
-- **ESDA (Extended Sorted Deferred Acceptance Algorithm)**
+- **ESDA (Extended Sorted Deferred Acceptance Algorithm)** [4]
 - **CP (Constraint Programming)** [3]
-- **Synthetic Data Generation**
+- **Synthetic Data Generation** [4]
 
 
 ## Setup
@@ -78,3 +78,5 @@ rye run pytest -s test/test_data_generation.py
 Research*, 62(4):713-732, 2014.
 
 - [3] Z. Sun, N. Yamada, Y. Takenami, D. Moriwaki, and M. Yokoo. Stable matchings in practice: A constraint programming approach. In *Proceedings of the 38th AAAI Conference on Artificial Intelligence (AAAI 2024)*, pages 22377-22384, 2024.
+
+- [4] Z. Sun, T. Yokoyama, and M. Yokoo. Probabilistic analysis of stable matching in large markets with siblings. In arXiv 2501.13043.
