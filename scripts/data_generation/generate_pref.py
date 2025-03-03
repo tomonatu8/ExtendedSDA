@@ -14,7 +14,7 @@ def generate_pref(
     
     This function works with both lists of integers and lists of tuples.
     
-    Parameters:
+    Parameters
     -----------
     items : List[T]
         List of items to choose from (can be integers or tuples)
@@ -23,7 +23,7 @@ def generate_pref(
     seed : int, optional
         Random seed for reproducibility
         
-    Returns:
+    Returns
     --------
     List[T]
         Random sample of length items from the input list

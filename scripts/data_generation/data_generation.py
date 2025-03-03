@@ -23,7 +23,7 @@ def generate_multi_child_preferences(
     """
     Generate preference lists for multi-child families.
     
-    Parameters:
+    Parameters
     -----------
     daycare_ids : List[int]
         List of daycare IDs to choose from
@@ -34,7 +34,7 @@ def generate_multi_child_preferences(
     seed : int, optional
         Random seed for reproducibility
         
-    Returns:
+    Returns
     --------
     List[Tuple[int, ...]]
         List of preference tuples, where each tuple contains daycare IDs for siblings
@@ -71,9 +71,9 @@ def data_generation(
         single_child_pref_length: int,
         multi_child_pref_length: int,
         daycare_priority_length: int,
-        age_distribution: Optional[List[float]],
+        age_distribution: List[float],
         num_instances: int,
-        seed: int
+        seed: int,
 ) -> List[Dict]:
     """
     Generate synthetic data for daycare assignment problem.
@@ -81,7 +81,8 @@ def data_generation(
     This function creates a dataset containing children, families, and daycares with their preferences,
     which can be used for two-sided matching problem with siblings.
     
-    Parameters:
+
+    Parameters
     -----------
     num_of_total_children : int
         Total number of children across all families
@@ -98,21 +99,25 @@ def data_generation(
     capacity : List[int]
         Quota for each age group in daycares
     varepsilon : float
-        Parameter for generating original priority (higher values create more variation)
+        Parameter for generating original priority
     phi : float
         Parameter for Mallows model (lower values create preferences closer to the reference ranking)
     single_child_pref_length : int
         Maximum preference list length for single-child families
     multi_child_pref_length : int
         Maximum preference list length for multi-child families
-    original_priority_length : int
+    daycare_priority_length : int
         Length of the original priority ranking
+    age_distribution : List[float]
+        Probability distribution for ages 0-5. Should sum to 1.0.
     num_instances : int
         Number of data instances to generate
+    seed : int
+        Random seed for reproducibility
         
-    Returns:
+    Returns
     --------
-    List[Dict]
+    instances : List[Dict]
         List of generated instances, each containing children, families, daycares data and parameters
     """
     
@@ -135,7 +140,6 @@ def data_generation(
 
     # Set the base random seed
     random.seed(seed)
-    # Create a derived seed for each instance
     instance_seeds = [seed + i * 1000 for i in range(num_instances)]
 
     instances = []
@@ -261,6 +265,7 @@ def data_generation(
             original_priority=original_priority,
             seed=votes_seed
         )
+        # ----- Step 4: Generate daycare priorities for children -----
 
         # ----- Step 5: Create daycare records -----
         daycares_dic = defaultdict()
@@ -271,6 +276,7 @@ def data_generation(
                 children_dic, 
                 capacity
             )
+        # ----- Step 5: Create daycare records -----
         
         # ----- Step 6: Package data into a complete instance -----
         instance_data = {
@@ -291,6 +297,7 @@ def data_generation(
                 'multi_child_pref_length': multi_child_pref_length
             }
         }
+        # ----- Step 6: Package data into a complete instance -----
         
         instances.append(instance_data)
 
