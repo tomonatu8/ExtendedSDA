@@ -16,7 +16,6 @@ This repository contains the codebase for the paper titled "Probabilistic Analys
 - Python 3.10
 - [Rye](https://rye.astral.sh/) (Python package manager)
 - [uv](https://github.com/astral-sh/uv) (Python package installer, used by Rye)
-- [Rust](https://www.rust-lang.org/) (for Mallows model)
 
 ### Installation
 
