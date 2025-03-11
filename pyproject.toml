@@ -7,13 +7,13 @@ authors = [
 ]
 dependencies = [
     "numpy>=2.2.1",
-    "maturin>=1.8.1",
     "pandas>=2.2.3",
     "tqdm>=4.67.1",
     "pytest>=8.3.4",
     "preflibtools>=2.0.32",
     "uv>=0.5.13",
     "ortools>=9.11.4210",
+    "pymallows @ https://github.com/tomonatu8/pymallows/raw/main/wheels/pymallows-0.1.0-cp310-cp310-macosx_11_0_arm64.whl",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"

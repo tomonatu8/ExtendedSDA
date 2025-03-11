@@ -1,11 +1,7 @@
-from typing import Dict, DefaultDict, List, Any, Tuple, Optional
+from typing import Dict, DefaultDict, List, Any, Tuple
 from collections import defaultdict
-import sys 
-import os
 import random
 
-
-sys.path.append(os.path.dirname((os.path.abspath(__file__))).replace("/mallows",""))
 from scripts.data_generation.generate_agents import generate_child, generate_family, generate_daycare_using_rust
 from scripts.data_generation.generate_pref import generate_pref
 from scripts.data_generation.generate_original_priority import generate_original_priority
@@ -31,7 +27,7 @@ def generate_multi_child_preferences(
         Number of children in the family (2 or 3)
     pref_length : int
         Length of preference list to generate
-    seed : int, optional
+    seed : int
         Random seed for reproducibility
         
     Returns
