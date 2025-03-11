@@ -47,12 +47,7 @@ uv --version
 rye pin 3.10
 rye sync
 ```
-6. Build Rust Code (Mallows Model):
-```bash
-cd scripts/data_generation/rust
-maturin build -i python3 --release
-maturin develop --release --uv
-```
+
 
 ## Usage
 ### Run Tests
